@@ -1,3 +1,9 @@
+# revision 22650
+# category Package
+# catalog-ctan /language/polish/mex105.zip
+# catalog-date 2011-04-11 12:20:39 +0200
+# catalog-license pd
+# catalog-version 1.05
 Name:		texlive-mex
 Version:	1.05
 Release:	1
@@ -67,6 +73,7 @@ formats.
 #- source
 %doc %{_texmfdistdir}/source/mex/base/eminst.zip
 %doc %{_texmfdistdir}/source/mex/base/istyles.zip
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -77,6 +84,8 @@ formats.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/mex <<EOF
 mex pdftex mexconf.tex -translate-file=cp227.tcx *mex.ini
