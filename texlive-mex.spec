@@ -16,7 +16,8 @@ Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.doc.tar.xz
 Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.source.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
-Requires(post):	texlive-tlpkg
+Requires(pre):	texlive-tlpkg
+Requires(post):	texlive-kpathsea
 Requires:	texlive-pl
 Requires:	texlive-hyphen-polish
 Requires:	texlive-pdftex
@@ -39,8 +40,8 @@ formats.
     %_texmf_mktexlsr_pre
 
 %post
-    %_texmf_fmtutil_post
     %_texmf_mktexlsr_post
+    %_texmf_fmtutil_post
 
 %preun
     if [ $1 -eq 0 ]; then
@@ -50,8 +51,8 @@ formats.
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_fmtutil_post
 	%_texmf_mktexlsr_post
+	%_texmf_fmtutil_post
     fi
 
 #-----------------------------------------------------------------------
