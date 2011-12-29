@@ -23,9 +23,7 @@ Requires:	texlive-hyphen-polish
 Requires:	texlive-pdftex
 Requires:	texlive-tex
 Requires:	texlive-mex.bin
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
-Conflicts:	texlive-source <= 20110705-3
+
 Requires(post):	texlive-tetex
 
 %description
@@ -35,24 +33,12 @@ It contains a complete set of Metafont sources of Polish fonts,
 hyphenation rules for the Polish language and sources of
 formats.
 
-%pre
-    %_texmf_fmtutil_pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-    %_texmf_fmtutil_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_fmtutil_pre
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
-	%_texmf_fmtutil_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -74,7 +60,6 @@ formats.
 #- source
 %doc %{_texmfdistdir}/source/mex/base/eminst.zip
 %doc %{_texmfdistdir}/source/mex/base/istyles.zip
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -85,8 +70,6 @@ formats.
 %install
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/mex <<EOF
 mex pdftex mexconf.tex -translate-file=cp227.tcx *mex.ini
