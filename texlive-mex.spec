@@ -6,7 +6,7 @@
 # catalog-version 1.05
 Name:		texlive-mex
 Version:	1.05
-Release:	2
+Release:	3
 Summary:	Polish formats for TeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/polish/mex105.zip
@@ -18,13 +18,12 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
+Requires(post):	texlive-tetex
 Requires:	texlive-pl
 Requires:	texlive-hyphen-polish
 Requires:	texlive-pdftex
 Requires:	texlive-tex
 Requires:	texlive-mex.bin
-
-Requires(post):	texlive-tetex
 
 %description
 MeX is an adaptation of Plain TeX (MeX) and LaTeX209 (LaMeX)
@@ -72,6 +71,8 @@ mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_texmf_fmtutil_d}
 cat > %{buildroot}%{_texmf_fmtutil_d}/mex <<EOF
+#
+# from mex:
 mex pdftex mexconf.tex -translate-file=cp227.tcx *mex.ini
 pdfmex pdftex mexconf.tex -translate-file=cp227.tcx *pdfmex.ini
 utf8mex pdftex mexconf.tex -enc *utf8mex.ini
