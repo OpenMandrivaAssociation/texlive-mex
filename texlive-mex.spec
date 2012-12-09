@@ -77,3 +77,21 @@ mex pdftex mexconf.tex -translate-file=cp227.tcx *mex.ini
 pdfmex pdftex mexconf.tex -translate-file=cp227.tcx *pdfmex.ini
 utf8mex pdftex mexconf.tex -enc *utf8mex.ini
 EOF
+
+
+%changelog
+* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.05-3
++ Revision: 778453
+- Rebuild after tlpobj2spec.pl bug correction.
+
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.05-2
++ Revision: 753933
+- Rebuild to reduce used resources
+
+* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.05-1
++ Revision: 719006
+- texlive-mex
+- texlive-mex
+- texlive-mex
+- texlive-mex
+
