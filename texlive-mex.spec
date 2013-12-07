@@ -6,7 +6,7 @@
 # catalog-version 1.05
 Name:		texlive-mex
 Version:	1.05
-Release:	5
+Release:	6
 Summary:	Polish formats for TeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/polish/mex105.zip
