@@ -1,19 +1,13 @@
-# revision 22650
-# category Package
-# catalog-ctan /language/polish/mex105.zip
-# catalog-date 2011-04-11 12:20:39 +0200
-# catalog-license pd
-# catalog-version 1.05
 Name:		texlive-mex
-Version:	1.05
-Release:	12
+Version:	58661
+Release:	1
 Summary:	Polish formats for TeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/polish/mex105.zip
 License:	PD
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.source.tar.xz
+Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.r%{version}.tar.xz
+Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.doc.r%{version}.tar.xz
+Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.source.r%{version}.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -33,12 +27,12 @@ hyphenation rules for the Polish language and sources of
 formats.
 
 %post
-    %{_sbindir}/texlive.post
+%{_sbindir}/texlive.post
 
 %postun
-    if [ $1 -eq 0 ]; then
+if [ $1 -eq 0 ]; then
 	%{_sbindir}/texlive.post
-    fi
+fi
 
 #-----------------------------------------------------------------------
 %files
@@ -62,7 +56,8 @@ formats.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a1 -a2
+%autopatch -p1
 
 %build
 
@@ -77,21 +72,3 @@ mex pdftex mexconf.tex -translate-file=cp227.tcx *mex.ini
 pdfmex pdftex mexconf.tex -translate-file=cp227.tcx *pdfmex.ini
 utf8mex pdftex mexconf.tex -enc *utf8mex.ini
 EOF
-
-
-%changelog
-* Tue Feb 21 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.05-3
-+ Revision: 778453
-- Rebuild after tlpobj2spec.pl bug correction.
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.05-2
-+ Revision: 753933
-- Rebuild to reduce used resources
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.05-1
-+ Revision: 719006
-- texlive-mex
-- texlive-mex
-- texlive-mex
-- texlive-mex
-
