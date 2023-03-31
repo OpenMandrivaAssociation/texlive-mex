@@ -1,6 +1,6 @@
 Name:		texlive-mex
 Version:	58661
-Release:	1
+Release:	2
 Summary:	Polish formats for TeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/language/polish/mex105.zip
