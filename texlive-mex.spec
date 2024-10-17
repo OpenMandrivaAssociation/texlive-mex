@@ -3,7 +3,7 @@ Version:	58661
 Release:	2
 Summary:	Polish formats for TeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/language/polish/mex105.zip
+URL:		https://www.ctan.org/tex-archive/language/polish/mex105.zip
 License:	PD
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/mex.doc.r%{version}.tar.xz
