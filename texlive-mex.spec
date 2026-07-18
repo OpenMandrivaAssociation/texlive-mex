@@ -1,5 +1,6 @@
 %global tl_name mex
 %global tl_revision 58661
+%global tl_bin_links mex:pdftex pdfmex:pdftex utf8mex:pdftex
 
 Name:		texlive-%{tl_name}
 Epoch:		1
@@ -27,6 +28,8 @@ Requires:	texlive(tex)
 Requires:	texlive(tex-ini-files)
 Requires:	texlive(utf8mex)
 Provides:	texlive(%{tl_name}) = %{tl_revision}
+Provides:	texlive(%{tl_name}.bin) = %{tl_revision}
+Provides:	texlive-%{tl_name}.bin = %{EVRD}
 
 %description
 MeX is an adaptation of Plain TeX (MeX) and LaTeX209 (LaMeX) formats to
